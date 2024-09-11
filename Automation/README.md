@@ -4,7 +4,7 @@
 
 <br/>
 
-# Azure Resource Inventory Automation Account v4
+# Azure Resource Inventory Automation Account v3
 
 <br/>
 
@@ -52,7 +52,7 @@ Once you have created the Automation Account, Storage Account and Blob Container
 
 <br/>
 
-#### This will create an identity in the Entra ID.
+#### This will create an identity in the Azure AD.
 
 ### Now we are going to use that identity to give the following permissions to the Automation Account:
 
@@ -63,7 +63,7 @@ Once you have created the Automation Account, Storage Account and Blob Container
 <br/>
 
 <p align="center">
-<img src="images/AUTv4Tenant.png">
+<img src="images/AUTv3Tenant.png">
 </p>
 
 <br/>
@@ -77,7 +77,7 @@ Once you have created the Automation Account, Storage Account and Blob Container
 <br/>
 
 <p align="center">
-<img src="images/AUTv4STGPerm.png">
+<img src="images/AUTv3STGPerm.png">
 </p>
 
 <br/>
@@ -86,10 +86,11 @@ Once you have created the Automation Account, Storage Account and Blob Container
 
 ### Now, back in the Automation Account, the following Modules need to be imported with Runtime __7.2__:
 
-#### 1) "AzureResourceInventory"
-#### 2) "ImportExcel"
-#### 3) "Az.ResourceGraph"
-#### 4) "ThreadJob"
+#### 1) "ImportExcel" 
+#### 2) "Az.ResourceGraph" 
+#### 3) "Az.Storage" 
+#### 4) "Az.Account"
+#### 5) "ThreadJob"
 
 <br/>
 
@@ -102,7 +103,7 @@ Once you have created the Automation Account, Storage Account and Blob Container
 <br/>
 
 <p align="center">
-<img src="images/AUTv4Modules.png">
+<img src="images/AUTv3Modules.png">
 </p>
 
 <br/>
@@ -117,35 +118,35 @@ Once you have created the Automation Account, Storage Account and Blob Container
 <br/>
 
 <p align="center">
-<img src="images/AUTv4Runbook.png">
+<img src="images/AUTv3Runbook.png">
 </p>
 
 <br/>
 
 <br/>
 
-#### Then just add the "Invoke-ARI" command line inside the runbook. 
+#### Then just copy the script content from __ARI_Automation.ps1__
 
 <br/>
-
-The line must contain the following parameters:
-
-````
--TenantID
--SkipDiagram
--Automation
--StorageAccount
--StorageContainer
-````
-
-<br/>
-
-The parameter "StorageAccount" is used to inform the Storage Account where the report will be placed and the "StorageContainer" parameter is used to pass the container within that Storage Account where the report will be placed.
 
 <br/>
 
 <p align="center">
 <img src="images/ARIAUT_RunBookScript.png">
+</p>
+
+<br/>
+
+<br/>
+
+Remember to change the lines 33 and 36 with your Storage Account and Container name:
+
+<br/>
+
+<br/>
+
+<p align="center">
+<img src="images/AUTv3StorageName.png">
 </p>
 
 
